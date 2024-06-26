@@ -14,8 +14,11 @@ body {
 .stars {
     position: absolute;
     width: 100%;
-    height: 50%;
+    height: 100%; /* Ensure this covers the full height */
     overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Ensure stars are in the background */
 }
 
 .star {
@@ -47,7 +50,12 @@ body {
 .container {
     position: relative;
     text-align: center;
-    z-index: 1;
+    z-index: 1; /* Ensure this is above the stars */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content */
+    align-items: center; /* Center horizontally */
+    flex-grow: 1; /* Allow it to grow and take space */
 }
 
 h1 {
@@ -104,11 +112,14 @@ h1 {
 }
 
 .footer {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
+    position: relative;
     text-align: center;
     z-index: 1;
+    padding: 20px 0; /* Add padding for visibility */
+    width: 100%; /* Ensure it takes full width */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Add background for better visibility */
+    display: flex; /* Ensure footer displays flex */
+    justify-content: center; /* Center the content horizontally */
 }
 
 .social-buttons {
@@ -118,12 +129,17 @@ h1 {
 }
 
 .social-button {
-    color: #fff;
+    color: #fff; /* Make the icons white */
     font-size: 2em;
+    width: 40px; /* Set explicit width */
+    height: 40px; /* Set explicit height */
+    display: flex; /* Center icon within button */
+    justify-content: center; /* Center icon horizontally */
+    align-items: center; /* Center icon vertically */
     transition: transform 0.3s, color 0.3s;
 }
 
 .social-button:hover {
     transform: scale(1.2);
-    color: #ff00cc;
+    color: #ff00cc; /* Optional: change color on hover */
 }
